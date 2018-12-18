@@ -35,7 +35,8 @@ class Index extends Component<Props, Object> {
 
   increment = () => {
     const { User } = this.injected;
-    User.setCount(1);
+    const { count, setCount } = User;
+    setCount(count + 1);
   };
 
   render() {

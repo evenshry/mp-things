@@ -1,4 +1,4 @@
-import { UserStore } from 'src/store/UserStore';
+import UserStore from 'src/store/UserStore';
 
 export default {
   User: UserStore
