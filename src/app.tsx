@@ -1,94 +1,53 @@
-import Taro, { Component, Config } from '@tarojs/taro';
-import { Provider } from '@tarojs/redux';
-import '@tarojs/async-await';
-import dva from './store';
-import models from './store/modals';
-import Index from './pages/home/Index/index';
+import Taro, { Component, Config } from '@tarojs/taro'
+import { Provider } from '@tarojs/mobx'
+import Index from './pages/index'
+import store from './store'
+import './app.less'
 
-import './app.less';
-
-// 初始化DVA
-const dvaApp = dva.createApp({
-  initialState: {},
-  models: models
-});
-const store = dvaApp.getStore();
-
-// 全局事件
-enum GlobalEvent {
-  REQUEST_FAIL = 'request_fail',
-  TOKEN_INVALID = 'token_invalid'
-}
+// 如果需要在 h5 环境中开启 React Devtools
+// 取消以下注释：
+// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
+//   require('nerv-devtools')
+// }
 
 class App extends Component {
+
+  /**
+   * 指定config的类型声明为: Taro.Config
+   *
+   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
+   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
+   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
+   */
   config: Config = {
-    pages: ['pages/home/Index/index', 'pages/things/Index/index', 'pages/profile/Index/index'],
+    pages: [
+      'pages/index/index'
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'Things',
+      navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    },
-    tabBar: {
-      color: '#999999',
-      selectedColor: '#333333',
-      backgroundColor: '#fcfcfc',
-      borderStyle: 'white',
-      position: 'bottom',
-      list: [
-        {
-          text: 'HOME',
-          pagePath: 'pages/home/Index/index'
-        },
-        {
-          text: 'THINGS',
-          pagePath: 'pages/things/Index/index'
-        },
-        {
-          text: 'MY',
-          pagePath: 'pages/profile/Index/index'
-        }
-      ]
     }
-  };
-
-  handleUpdate() {
-    // 更新新版本
-    const updateManager = Taro.getUpdateManager();
-    updateManager.onCheckForUpdate(function() {
-      // 请求完新版本信息的回调
-    });
-    updateManager.onUpdateReady(function() {
-      // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-      updateManager.applyUpdate();
-    });
-    updateManager.onUpdateFailed(function() {
-      // 新版本下载失败
-    });
   }
 
-  componentWillMount() {
-    this.handleUpdate();
-    // 请求失败事件
-    Taro.eventCenter.on(GlobalEvent.REQUEST_FAIL, error => {
-      if (error instanceof Error) {
-        Taro.showToast({ title: error.message || '获取失败', icon: 'none' });
-      }
-    });
-  }
+  componentDidMount () {}
 
-  componentWillUnmount() {
-    // @ts-ignore
-    Taro.eventCenter.off();
-  }
+  componentDidShow () {}
 
-  render() {
+  componentDidHide () {}
+
+  componentDidCatchError () {}
+
+  // 在 App 类中的 render() 函数没有实际作用
+  // 请勿修改此函数
+  render () {
     return (
       <Provider store={store}>
         <Index />
       </Provider>
-    );
+    )
   }
 }
 
-Taro.render(<App />, document.getElementById('app'));
+Taro.render(<App />, document.getElementById('app'))

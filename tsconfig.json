@@ -6,7 +6,6 @@
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "jsxFactory": "Taro.createElement",
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
@@ -15,11 +14,19 @@
     "strictNullChecks": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "paths": {
+      "src": ["."],
+      "assets/*": ["./assets/*"],
+      "components/*": ["./components/*"],
+      "pages/*": ["./pages/*"],
+      "store/*": ["./store/*"],
+      "utils/*": ["./utils/*"]
+    },
     "rootDir": ".",
     "jsx": "preserve",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "jsxFactory": "Taro.createElement",
+    "allowJs": true,
+    "typeRoots": ["node_modules/@types", "global.d.ts"]
   },
   "compileOnSave": false
 }
