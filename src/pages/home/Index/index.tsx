@@ -1,5 +1,5 @@
 import Taro, { Config } from '@tarojs/taro';
-import { View, Button, Text } from '@tarojs/components';
+import { View, Text } from '@tarojs/components';
 import { observer, inject } from '@tarojs/mobx';
 import BaseComponent from 'components/index';
 import { UserStore } from 'store/UserStore';
@@ -20,25 +20,28 @@ export default class Index extends BaseComponent<Props, Object> {
     return this.props as InjectedProps;
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    this.initTitle();
+  }
 
   componentDidMount() {}
 
   componentAfterShow() {}
 
-  increment = () => {
+  initTitle = () => {
     const { User } = this.injected;
-    const { count, setCount } = User;
-    setCount(count + 1);
+    const { title, setTitle } = User;
+    setTitle(`${title} WORLD`);
   };
 
   render() {
     const { User } = this.injected;
-    const { count } = User;
+    const { title } = User;
     return (
-      <View className="index">
-        <Button onClick={this.increment}>+</Button>
-        <Text>{count}</Text>
+      <View className="container">
+        <View className="header">
+          <Text className="title">{title}</Text>
+        </View>
       </View>
     );
   }

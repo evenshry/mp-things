@@ -2,11 +2,11 @@ import { observable, action } from 'mobx';
 
 export class UserStore {
   @observable
-  count: number = 0;
+  title: string = 'HELLO';
 
   @action
-  setCount = (value: number): void => {
-    this.count = value;
+  setTitle = (value: string): void => {
+    this.title = value;
   };
 }
 export default new UserStore();

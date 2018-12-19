@@ -1,13 +1,17 @@
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .ui-tabs {
   overflow-x: auto;
   .tabContainer {
     height: 80rpx;
     line-height: 80rpx;
     background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     position: relative;
+    .flexRow;
     .item {
       flex: 1;
       height: 100%;
