@@ -24,6 +24,38 @@ const config = {
       sourceMap: true,
       presets: ['env'],
       plugins: ['transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
+    },
+    typescript: {
+      compilerOptions: {
+        target: 'es2017',
+        module: 'commonjs',
+        removeComments: false,
+        preserveConstEnums: true,
+        moduleResolution: 'node',
+        experimentalDecorators: true,
+        noImplicitAny: false,
+        allowSyntheticDefaultImports: true,
+        outDir: 'lib',
+        noUnusedLocals: true,
+        noUnusedParameters: true,
+        strictNullChecks: true,
+        sourceMap: true,
+        baseUrl: '.',
+        paths: {
+          src: ['./src'],
+          'assets/*': ['./src/assets/*'],
+          'components/*': ['./src/components/*'],
+          'pages/*': ['./src/pages/*'],
+          'store/*': ['./src/store/*'],
+          'utils/*': ['./src/utils/*']
+        },
+        rootDir: '.',
+        jsx: 'preserve',
+        jsxFactory: 'Taro.createElement',
+        allowJs: true,
+        typeRoots: ['node_modules/@types', 'global.d.ts']
+      },
+      compileOnSave: false
     }
   },
   defineConstants: {},

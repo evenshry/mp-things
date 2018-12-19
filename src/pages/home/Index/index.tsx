@@ -1,8 +1,9 @@
-import Taro, { Component, Config } from '@tarojs/taro';
+import Taro, { Config } from '@tarojs/taro';
 import { View, Button, Text } from '@tarojs/components';
 import { observer, inject } from '@tarojs/mobx';
-import { UserStore } from 'src/store/UserStore';
-import './index.less';
+import BaseComponent from 'components/index';
+import { UserStore } from 'store/UserStore';
+import './style.less';
 
 interface Props {}
 interface InjectedProps extends Props {
@@ -11,7 +12,7 @@ interface InjectedProps extends Props {
 
 @inject('User')
 @observer
-class Index extends Component<Props, Object> {
+export default class Index extends BaseComponent<Props, Object> {
   config: Config = {
     navigationBarTitleText: '首页'
   };
@@ -21,17 +22,9 @@ class Index extends Component<Props, Object> {
 
   componentWillMount() {}
 
-  componentWillReact() {
-    console.log('componentWillReact');
-  }
-
   componentDidMount() {}
 
-  componentWillUnmount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
+  componentAfterShow() {}
 
   increment = () => {
     const { User } = this.injected;
@@ -50,5 +43,3 @@ class Index extends Component<Props, Object> {
     );
   }
 }
-
-export default Index;

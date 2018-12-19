@@ -1,0 +1,77 @@
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.overEclipse(@row) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @row;
+  overflow: hidden;
+}
+
+.rowItem {
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  height: 90rpx;
+  .flexRow;
+  .title {
+    width: 180rpx;
+    .flexRow;
+    .text {
+      font-size: 28rpx;
+      color: #333;
+    }
+    .info {
+      height: 48rpx;
+      margin-left: 10rpx;
+    }
+  }
+  .detail {
+    flex: 1;
+    .flexRow;
+    justify-content: flex-end;
+    .input {
+      flex: 1;
+      text-align: right;
+      font-size: 28rpx;
+      color: #333;
+    }
+    .text {
+      flex: 1;
+      text-align: right;
+      font-size: 28rpx;
+      color: #666;
+      .overEclipse(1);
+      &.primary {
+        color: #ff921c;
+      }
+    }
+    .arrow {
+      color: #ccc;
+      margin-left: 10rpx;
+      .flexRow;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #e9eaec;
+  }
+}

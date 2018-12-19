@@ -15,12 +15,12 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "src": ["."],
-      "assets/*": ["./assets/*"],
-      "components/*": ["./components/*"],
-      "pages/*": ["./pages/*"],
-      "store/*": ["./store/*"],
-      "utils/*": ["./utils/*"]
+      "src": ["./src"],
+      "assets/*": ["./src/assets/*"],
+      "components/*": ["./src/components/*"],
+      "pages/*": ["./src/pages/*"],
+      "store/*": ["./src/store/*"],
+      "utils/*": ["./src/utils/*"]
     },
     "rootDir": ".",
     "jsx": "preserve",

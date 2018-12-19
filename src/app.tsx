@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import Index from './pages/index'
+import Index from 'pages/home/Index';
 import store from './store'
 import './app.less'
 
@@ -21,7 +21,7 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/home/Index/index'
     ],
     window: {
       backgroundTextStyle: 'light',

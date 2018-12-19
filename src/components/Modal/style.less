@@ -1,0 +1,93 @@
+.ui-modal {
+  position: fixed;
+  z-index: 990;
+  .modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 990;
+    transition: all 0.15s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    &.modal-mask-show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .modal {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    border-radius: 10rpx 10rpx 0rpx 0rpx;
+    transform: translate3d(0, 100%, 0);
+    transform-origin: center;
+    transition: all 0.15s ease-in-out;
+    z-index: 990;
+    visibility: hidden;
+    // overflow: hidden;
+    &.center {
+      width: auto;
+      margin: auto;
+      width: 80%;
+      height: 50%;
+      top: 0;
+      transform: translate3d(0, -300%, 0);
+    }
+    &.show {
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+    &.radius {
+      border-radius: 10rpx;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: #fff;
+      text-align: center;
+      position: relative;
+      height: 104rpx;
+      line-height: 104rpx;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none;
+        box-sizing: border-box;
+        border-bottom: 1rpx solid #e9eaec;
+      }
+      .title {
+        font-size: 32rpx;
+        color: #333;
+      }
+    }
+    .modal-close {
+      position: absolute;
+      top: 0;
+      right: 0rpx;
+      color: #ccc;
+      height: 104rpx;
+      line-height: 100rpx;
+      padding: 0 20rpx;
+      z-index: 10;
+    }
+
+    .modal-body {
+      font-size: 24rpx;
+      // padding: 20rpx;
+    }
+  }
+}
