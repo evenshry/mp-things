@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
-import Iconfont from '../Iconfont';
+import { View, Icon } from '@tarojs/components';
 import './style.less';
 
 interface Props {
@@ -24,11 +23,11 @@ export default class Index extends Component<Props, Object> {
     return show ? (
       <View className="noticeContainer">
         <View className="icon">
-          <Iconfont name="icon-icon_prompt" color="#FF921C" size={14} />
+          <Icon type="info" color="#FF921C" size="14px" />
         </View>
         <View className="text">{this.props.children}</View>
         <View className="close" onClick={this.onClose}>
-          <Iconfont name="icon-icon_close_line" color="#ccc" size={14} />
+          <Icon type="cancel" color="#ccc" size="14px" />
         </View>
       </View>
     ) : null;

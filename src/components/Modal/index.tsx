@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text } from '@tarojs/components';
-import Iconfont from '../Iconfont';
+import { View, Text, Icon } from '@tarojs/components';
 
 import './style.less';
 
@@ -51,7 +50,7 @@ export default class Modal extends Component<Props, Object> {
           )}
           {showClose && (
             <View className="modal-close" onClick={this.handleClose}>
-              <Iconfont name="icon-icon_close_line" size={16} />
+              <Icon type="cancel" color="#ccc" size="16px" />
             </View>
           )}
           <View className="modal-body" style={{ height: bodyHeight }}>

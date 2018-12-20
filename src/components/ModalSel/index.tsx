@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { ScrollView, View, Text } from '@tarojs/components';
 import Modal from '../Modal';
-// import Iconfont from '../Iconfont';
 import './style.less';
 
 /*======================= 类型声明 begin ===========================*/
@@ -100,7 +99,6 @@ export default class Index extends Component<Props, Object> {
         <View className="scrollContainer">
           {data && data.length > 0
             ? data.map((item, index) => {
-                // const scrollTop = current[index] && ~current[index].index ? current[index].index * 48 : 0;
                 return (
                   <ScrollView key={index} scrollY className="scrollView">
                     {item && item.length > 0
@@ -112,13 +110,8 @@ export default class Index extends Component<Props, Object> {
                             selected = children.selected;
                           }
                           return (
-                            <View
-                              key={j}
-                              className={`item ${selected ? 'active' : ''}`}
-                              onClick={this.handleOptionSelect.bind(this, index, j, children)}
-                            >
+                            <View key={j} className={`item ${selected ? 'active' : ''}`} onClick={this.handleOptionSelect.bind(this, index, j, children)}>
                               <Text className="text">{children.label}</Text>
-                              {/* {selected ? <Iconfont size={16} color="#FF921C" name="icon-add" /> : <Text />} */}
                             </View>
                           );
                         })

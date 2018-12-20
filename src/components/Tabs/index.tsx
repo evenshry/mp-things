@@ -86,7 +86,7 @@ export default class Tabs extends Component<Props, Object> {
         itemStyle: { flex: 'none', width: itemWidth }
       });
     } else {
-      const itemWidth = pWidth / data.length;
+      itemWidth = pWidth / data.length;
       const offset = itemWidth * (value + 1 / 2);
       this.setState({
         current: value,
