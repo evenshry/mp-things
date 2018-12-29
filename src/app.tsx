@@ -22,8 +22,9 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/home/Index/index',
+      'pages/demo/Checks/index',
       'pages/demo/ItemRow/index',
-      'pages/demo/Checks/index'
+      'pages/demo/Modal/index'
     ],
     window: {
       backgroundTextStyle: 'light',

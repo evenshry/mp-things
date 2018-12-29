@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Input, Switch, Text } from '@tarojs/components';
-import { AtIcon } from 'taro-ui';
+import Ticon from 'components/Ticon';
 import './style.less';
 
 interface Props {
@@ -91,7 +91,7 @@ export default class ItemRow extends Component<Props, Object> {
       detailContent = (
         <View className={detailClass} onClick={this.onClickDetail}>
           <View className="text">{detail || this.props.children}</View>
-          <AtIcon value="chevron-right" size="14" color="#999" />
+          <Ticon value="right" />
         </View>
       );
     }

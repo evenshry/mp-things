@@ -32,7 +32,7 @@ export default class Modal extends Component<Props, Object> {
     onClose && onClose();
   }
 
-  onTouchMove = event => {
+  handleTouchMove = event => {
     event.stopPropagation();
   };
 
@@ -40,7 +40,7 @@ export default class Modal extends Component<Props, Object> {
     const { visible, title, center, radius, width, height, showHeader, showClose } = this.props;
     const bodyHeight = center ? (showHeader ? 'calc(100% - 104rpx)' : '100%') : 'auto';
     return (
-      <View className="ui-modal" onTouchMove={this.onTouchMove}>
+      <View className="ui-modal" onTouchMove={this.handleTouchMove}>
         <View className={`modal-mask ${visible && 'modal-mask-show'}`} onClick={this.handleClose} />
         <View className={`modal ${center ? 'center' : ''} ${visible ? 'show' : ''} ${radius ? 'radius' : ''}`} style={{ width, height }}>
           {showHeader && (

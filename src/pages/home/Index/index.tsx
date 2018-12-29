@@ -1,8 +1,8 @@
 import Taro, { Config } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { observer, inject } from '@tarojs/mobx';
-import BaseComponent from 'components/index';
 import { UserStore } from 'store/UserStore';
+import BaseComponent from 'components/index';
 import ItemRow from 'components/ItemRow';
 import './style.less';
 
@@ -53,10 +53,10 @@ export default class Index extends BaseComponent<Props, Object> {
         <View className="listContainer">
           <ItemRow title="Checks" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
           <ItemRow title="ItemRow" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
-          <ItemRow title="Modal" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
-          <ItemRow title="ModalSel" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
-          <ItemRow title="Notice" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
-          <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
+          <ItemRow title="Modal" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Modal')} />
+          <ItemRow title="ModalSel" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ModalSel')} />
+          <ItemRow title="Notice" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Notice')} />
+          <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tabs')} />
         </View>
       </View>
     );

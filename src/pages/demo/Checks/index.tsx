@@ -8,7 +8,7 @@ import './style.less';
 interface Props {}
 interface InjectedProps extends Props {}
 
-export default class Index extends BaseComponent<Props, Object> {
+export default class DemoItemRow extends BaseComponent<Props, Object> {
   config: Config = {
     navigationBarTitleText: '首页'
   };
