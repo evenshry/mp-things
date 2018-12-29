@@ -47,7 +47,7 @@ export default class DemoItemRow extends BaseComponent<Props, Object> {
           <ItemRow title="文本" type="text" detail="" placeholder="请输入文本" />
           <ItemRow title="数字" type="number" detail="" placeholder="请输入数字" />
           <ItemRow title="身份证" type="idcard" detail="" placeholder="请输入身份证" />
-          <ItemRow title="数字带小数" type="digit" detail="" placeholder="请输入数字带小数" />
+          <ItemRow title="数字带小数" titleWidth={140} type="digit" detail="" placeholder="请输入数字带小数" />
           <ItemRow title="开关按钮" type="switch" checked />
         </View>
       </View>

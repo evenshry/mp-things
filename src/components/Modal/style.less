@@ -39,7 +39,7 @@
       width: 80%;
       height: 50%;
       top: 0;
-      transform: translate3d(0, -300%, 0);
+      transform: translate3d(0, -200%, 0);
     }
     &.show {
       transform: translate3d(0, 0, 0);
@@ -88,6 +88,47 @@
     .modal-body {
       font-size: 24rpx;
       padding: 20rpx;
+    }
+
+    .modal-footer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      height: 120rpx;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none;
+        box-sizing: border-box;
+        border-top: 1rpx solid #e9eaec;
+      }
+      .btn {
+        width: 160rpx;
+        height: 70rpx;
+        line-height: 70rpx;
+        text-align: center;
+        font-size: 28rpx;
+        color: #666;
+        background-color: #fff;
+        padding: 0rpx !important;
+        border: 1rpx solid #ccc;
+        border-radius: 10rpx;
+        margin-left: 0rpx;
+        margin-right: 20rpx;
+        &.primary {
+          border: 1rpx solid #ff921c;
+          background-image: linear-gradient(90deg, #ffae01 0%, #ff921c 100%);
+          color: #fff;
+        }
+      }
     }
   }
 }
