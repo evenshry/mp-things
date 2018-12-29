@@ -35,6 +35,13 @@ export default class Index extends BaseComponent<Props, Object> {
     setTitle(`${title} WORLD`);
   };
 
+  /**
+   * 调转详情
+   */
+  handleDemo = (type: string): void => {
+    Taro.navigateTo({ url: `/pages/demo/${type}/index` });
+  };
+
   render() {
     const { User } = this.injected;
     const { title } = User;
@@ -44,12 +51,12 @@ export default class Index extends BaseComponent<Props, Object> {
           <Text className="title">{title}</Text>
         </View>
         <View className="listContainer">
-          <ItemRow title="Checks" type="select" detail="查看" />
-          <ItemRow title="ItemRow" type="select" detail="查看" />
-          <ItemRow title="Modal" type="select" detail="查看" />
-          <ItemRow title="ModalSel" type="select" detail="查看" />
-          <ItemRow title="Notice" type="select" detail="查看" />
-          <ItemRow title="Tabs" type="select" detail="查看" />
+          <ItemRow title="Checks" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
+          <ItemRow title="ItemRow" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
+          <ItemRow title="Modal" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
+          <ItemRow title="ModalSel" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
+          <ItemRow title="Notice" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
+          <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
         </View>
       </View>
     );

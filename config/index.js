@@ -67,7 +67,7 @@ const config = {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true
+          enable: false
         },
         url: {
           enable: true,

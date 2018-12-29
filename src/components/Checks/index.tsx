@@ -3,31 +3,44 @@ import { View, Text, Icon } from '@tarojs/components';
 import './style.less';
 
 interface Props {
-  onSelect: any;
   data: Array<any>;
+  onSelect: Function;
+  align?: 'left' | 'center' | 'right';
+  defaultColor?: string;
+  activeColor?: string;
 }
 
-export default class Index extends Component<Props, Object> {
+export default class Checks extends Component<Props, Object> {
   static defaultProps = {
     data: [],
-    onSelect: null
+    onSelect: null,
+    align: 'left',
+    defaultColor: '#ccc',
+    activeColor: '#FF921C'
   };
 
-  onSelect = item => {
+  state = {};
+
+  onSelect = (item, index) => {
     const { onSelect } = this.props;
-    onSelect && onSelect(item);
+    onSelect && onSelect(item, index);
   };
 
   render() {
-    const { data } = this.props;
+    const { data, align, defaultColor, activeColor } = this.props;
+    let justifyContent: string = align || 'left';
+    if (align === 'left') justifyContent = 'flex-start';
+    if (align === 'right') justifyContent = 'flex-end';
     return (
-      <View className="container">
+      <View className="container" style={{ justifyContent }}>
         {data.map((item, index) => {
           const selected = item.selected;
           return (
-            <View key={index} className="labelContainer" onClick={this.onSelect.bind(this, item)}>
-              <Icon type={selected ? 'success' : 'success_no_circle'} color={selected ? '#FF921C' : '#ccc'} size="14px" />
-              <Text className="text">{item.label}</Text>
+            <View key={index} className="labelContainer" onClick={this.onSelect.bind(this, item, index)}>
+              <Icon type="success" color={selected ? activeColor : defaultColor} size="14px" />
+              <Text className="text" style={{ color: selected ? activeColor : defaultColor }}>
+                {item.label}
+              </Text>
             </View>
           );
         })}

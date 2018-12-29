@@ -1,38 +1,37 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Input, Switch, Text } from '@tarojs/components';
-import Ticon from 'components/Ticon/index';
+import { AtIcon } from 'taro-ui';
 import './style.less';
 
 interface Props {
-  type?: string;
+  type?: 'default' | 'text' | 'number' | 'idcard' | 'digit' | 'select' | 'switch';
   title?: string;
-  titleIcon?: string;
+  titleWidth?: number;
   detail?: string;
+  detailAlign?: 'left' | 'right';
   checked?: boolean;
+  height?: number;
   maxlength?: number;
   placeholder?: string;
-  onClickInfo?: any;
   onClickDetail?: any;
   onChangeValue?: any;
 }
 
+interface StyleObj {
+  height?: string;
+  width?: string;
+}
+
 export default class ItemRow extends Component<Props, Object> {
   static defaultProps = {
-    type: 'text',
+    type: 'default',
     title: '标题',
-    titleIcon: '',
     checked: false,
-    detail: '',
+    detailAlign: 'right',
     maxlength: 20,
     placeholder: '请输入',
-    onClickInfo: null,
     onClickDetail: null,
     onChangeValue: null
-  };
-
-  onClickInfo = event => {
-    const { onClickInfo } = this.props;
-    onClickInfo && onClickInfo(event);
   };
 
   onClickDetail = event => {
@@ -45,81 +44,63 @@ export default class ItemRow extends Component<Props, Object> {
     onChangeValue && onChangeValue(event);
   };
 
-  onSelectFile = () => {
-    const { onClickDetail } = this.props;
-    Taro.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera']
-    })
-      .then(response => {
-        onClickDetail && onClickDetail(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
   render() {
-    const { type, title, titleIcon, checked, detail, maxlength, placeholder, children } = this.props;
+    const { type, title, titleWidth, height, detail, detailAlign, maxlength, placeholder, checked } = this.props;
+    const rowStyle: StyleObj = {};
+    if (height) {
+      rowStyle.height = height + 'rpx';
+    }
+    const titleStyle: StyleObj = {};
+    if (titleWidth) {
+      titleStyle.width = titleWidth + 'rpx';
+    }
+    let detailClass = 'detail';
+    if (detailAlign === 'right') {
+      detailClass = `${detailClass} right`;
+    } else {
+      detailClass = `${detailClass} left`;
+    }
     let detailContent: any = null;
-    if (type === 'text') {
+    if (type === 'default') {
       detailContent = (
-        <View className="detail">
-          <View className="text">{detail}</View>
+        <View className={detailClass}>
+          <View className="text">{detail || this.props.children}</View>
         </View>
       );
     } else if (type === 'switch') {
       detailContent = (
-        <View className="detail">
+        <View className={detailClass}>
           <Switch checked={checked} color="#ff921c" onChange={this.onChangeValue} />
         </View>
       );
-    } else if (type === 'input') {
+    } else if (type === 'text' || type === 'number' || type === 'idcard' || type === 'digit') {
       detailContent = (
-        <View className="detail">
-          <Input className="input" type="text" value={detail} maxLength={maxlength} placeholder={placeholder} onInput={this.onChangeValue} />
-        </View>
-      );
-    } else if (type === 'inputNumber') {
-      detailContent = (
-        <View className="detail">
-          <Input className="input" type="number" value={detail} maxLength={maxlength} placeholder={placeholder} onInput={this.onChangeValue} />
-        </View>
-      );
-    } else if (type === 'idcard') {
-      detailContent = (
-        <View className="detail">
-          <Input className="input" type="idcard" maxLength={maxlength || 18} value={detail} placeholder={placeholder} onInput={this.onChangeValue} />
+        <View className={detailClass}>
+          <Input
+            className="input"
+            type={type}
+            value={detail}
+            maxLength={type === 'idcard' ? 18 : maxlength}
+            placeholder={placeholder}
+            onInput={this.onChangeValue}
+            onConfirm={this.onChangeValue}
+          />
         </View>
       );
     } else if (type === 'select') {
       detailContent = (
-        <View className="detail" onClick={this.onClickDetail}>
-          <View className="text">{detail}</View>
-          <View className="arrow">
-            <Ticon name="right" size={28} />
-          </View>
-        </View>
-      );
-    } else if (type === 'upload') {
-      detailContent = (
-        <View className="detail" onClick={this.onSelectFile}>
-          <View className="text">{detail}</View>
-          <View className="arrow">
-            <Ticon name="right" size={28} />
-          </View>
+        <View className={detailClass} onClick={this.onClickDetail}>
+          <View className="text">{detail || this.props.children}</View>
+          <AtIcon value="chevron-right" size="14" color="#999" />
         </View>
       );
     }
     return (
-      <View className="rowItem">
-        <View className="title">
+      <View className="rowItem" style={rowStyle}>
+        <View className="title" style={titleStyle}>
           <Text className="text">{title}</Text>
-          {titleIcon && <View className="info" onClick={this.onClickInfo} />}
         </View>
         {detailContent}
-        {children && <View className="body">{children}</View>}
       </View>
     );
   }

@@ -1,9 +1,9 @@
+/* eslint-disable */
 module.exports = {
   env: {
     NODE_ENV: '"development"'
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   weapp: {},
   h5: {}
-}
+};
