@@ -24,7 +24,8 @@ class App extends Component {
       'pages/home/Index/index',
       'pages/demo/Checks/index',
       'pages/demo/ItemRow/index',
-      'pages/demo/Modal/index'
+      'pages/demo/Modal/index',
+      'pages/demo/Tabs/index'
     ],
     window: {
       backgroundTextStyle: 'light',
