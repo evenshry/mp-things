@@ -9,7 +9,7 @@ interface InjectedProps extends Props {}
 
 export default class DemoModal extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: 'Tabs Demos'
   };
   get injected() {
     return this.props as InjectedProps;
@@ -34,7 +34,7 @@ export default class DemoModal extends BaseComponent<Props, Object> {
     return (
       <View className="container">
         <View className="header">
-          <Text className="title">Checks</Text>
+          <Text className="title">Tabs</Text>
         </View>
 
         <View className="listContainer">

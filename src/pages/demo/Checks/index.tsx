@@ -10,7 +10,7 @@ interface InjectedProps extends Props {}
 
 export default class DemoItemRow extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: 'Checks Demos'
   };
   get injected() {
     return this.props as InjectedProps;

@@ -43,14 +43,13 @@ export default class Tabs extends Component<Props, Object> {
 
   componentDidMount = () => {
     const query = Taro.createSelectorQuery().in(this.$scope);
-    query
-      .select('.ui-tabs')
-      .boundingClientRect((rect: Rect) => {
-        this.setState({ pWidth: rect.width }, () => {
-          this.ininStyle(rect.width);
-        });
-      })
-      .exec();
+    let select = query.select('.ui-tabs');
+    select = select.boundingClientRect((rect: Rect) => {
+      this.setState({ pWidth: rect.width }, () => {
+        this.ininStyle(rect.width);
+      });
+    });
+    select.exec();
   };
 
   componentWillReceiveProps = nextProps => {

@@ -10,7 +10,7 @@ interface InjectedProps extends Props {}
 
 export default class DemoPicker extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: 'Tpicker Demos'
   };
   get injected() {
     return this.props as InjectedProps;

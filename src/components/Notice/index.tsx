@@ -1,16 +1,16 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Icon } from '@tarojs/components';
+import { View } from '@tarojs/components';
+import Ticon from 'components/Ticon';
 import './style.less';
 
 interface Props {
-  onClose?: any;
+  onClose?: Function;
   show?: boolean;
 }
 
-export default class Index extends Component<Props, Object> {
+export default class Notice extends Component<Props, Object> {
   static defaultProps = {
-    show: false,
-    onClose: null
+    show: false
   };
 
   onClose = () => {
@@ -19,16 +19,19 @@ export default class Index extends Component<Props, Object> {
   };
 
   render() {
-    const { show } = this.props;
+    const { show, onClose } = this.props;
+    const showClose = typeof onClose === 'function';
     return show ? (
       <View className="noticeContainer">
         <View className="icon">
-          <Icon type="info" color="#FF921C" size="14px" />
+          <Ticon value="icon-info-circle" color="#FF921C" size={30} />
         </View>
         <View className="text">{this.props.children}</View>
-        <View className="close" onClick={this.onClose}>
-          <Icon type="cancel" color="#ccc" size="14px" />
-        </View>
+        {showClose ? (
+          <View className="close" onClick={this.onClose}>
+            <Ticon value="icon-close1" size={30} />
+          </View>
+        ) : null}
       </View>
     ) : null;
   }
