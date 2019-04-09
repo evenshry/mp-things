@@ -39,7 +39,7 @@ export default class Index extends BaseComponent<Props, Object> {
    * 调转详情
    */
   handleDemo = (type: string): void => {
-    Taro.navigateTo({ url: `/pages/demo/${type}/index` });
+    Taro.navigateTo({ url: `/pages/demo/${type}` });
   };
 
   render() {

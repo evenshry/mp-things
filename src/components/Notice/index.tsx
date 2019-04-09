@@ -29,7 +29,7 @@ export default class Notice extends Component<Props, Object> {
         <View className="text">{this.props.children}</View>
         {showClose ? (
           <View className="close" onClick={this.onClose}>
-            <Ticon value="icon-close1" size={30} />
+            <Ticon value="icon-info" size={30} />
           </View>
         ) : null}
       </View>

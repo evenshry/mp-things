@@ -3,14 +3,13 @@ import { View, Text } from '@tarojs/components';
 import BaseComponent from 'components/index';
 import ItemRow from 'components/ItemRow';
 import Checks from 'components/Checks';
-import './style.less';
 
 interface Props {}
 interface InjectedProps extends Props {}
 
 export default class DemoItemRow extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: 'Checks Demos'
+    navigationBarTitleText: '选项-示例'
   };
   get injected() {
     return this.props as InjectedProps;
@@ -45,9 +44,9 @@ export default class DemoItemRow extends BaseComponent<Props, Object> {
   render() {
     const { data } = this.state;
     return (
-      <View className="container">
+      <View className="demoContainer">
         <View className="header">
-          <Text className="title">Checks</Text>
+          <Text className="title">Checks 选项</Text>
         </View>
         <View className="listContainer">
           <View className="subTitle">基本用法</View>

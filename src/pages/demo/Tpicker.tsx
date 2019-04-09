@@ -3,14 +3,13 @@ import { View, Text } from '@tarojs/components';
 import BaseComponent from 'components/index';
 import ItemRow from 'components/ItemRow';
 import Tpicker, { DataProps } from 'components/Tpicker';
-import './style.less';
 
 interface Props {}
 interface InjectedProps extends Props {}
 
 export default class DemoPicker extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: 'Tpicker Demos'
+    navigationBarTitleText: '选项弹出框-示例'
   };
   get injected() {
     return this.props as InjectedProps;
@@ -70,14 +69,14 @@ export default class DemoPicker extends BaseComponent<Props, Object> {
       { value: 9, label: '选项9' }
     ];
     return (
-      <View className="container">
+      <View className="demoContainer">
         <View className="header">
-          <Text className="title">Tpicker</Text>
+          <Text className="title">Tpicker 选项弹出框</Text>
         </View>
 
         <View className="listContainer">
           <View className="subTitle">基本用法</View>
-          <ItemRow title="标题" type="select" detail="单选" onClickDetail={this.handleDetail.bind(this, 0)} />
+          <ItemRow title="选项弹出框" type="select" detail="查看" onClickDetail={this.handleDetail.bind(this, 0)} />
         </View>
 
         <Tpicker show={modal[0]} data={data} selected={selection} onModal={this.handleModal.bind(this, 0)} />

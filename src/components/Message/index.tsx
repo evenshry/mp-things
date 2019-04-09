@@ -26,7 +26,7 @@ const MESSAGE_ICON = {
   [MESSAGE_TYPE.ERROR]: 'icon-close1'
 };
 
-interface Options {
+export interface MessageProps {
   type: MESSAGETYPE;
   message: string;
   showClose?: boolean;
@@ -41,9 +41,9 @@ interface Props {
 const defaultState = {
   show: false,
   showClose: false,
-  type: MESSAGE_TYPE.INFO,
+  type: undefined,
   duration: 3000,
-  message: '消息'
+  message: ''
 };
 
 export default class Message extends Component<Props, Object> {
@@ -51,7 +51,7 @@ export default class Message extends Component<Props, Object> {
     show: false
   };
 
-  static show = (options: Options) => {
+  static show = (options: MessageProps) => {
     Taro.eventCenter.trigger(MESSAGE_EVENT, options);
   };
 
@@ -67,15 +67,13 @@ export default class Message extends Component<Props, Object> {
 
   timeout: any = null;
 
-  handleShowMessage = (options: Options) => {
+  handleShowMessage = (options: MessageProps) => {
     const newOptions = { ...defaultState, ...options, show: true };
     this.setState(newOptions);
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
-    if (!options.showClose) {
-      this.timeout = setTimeout(this.handleHideMessage, newOptions.duration);
-    }
+    this.timeout = setTimeout(this.handleHideMessage, newOptions.duration);
   };
 
   handleHideMessage = () => {
@@ -86,10 +84,14 @@ export default class Message extends Component<Props, Object> {
     const { show, showClose, type, message } = this.state;
     return (
       <View className={`uiMessage ${type} ${show ? 'show' : ''}`}>
-        <View className="icon">
-          <Ticon value={MESSAGE_ICON[type]} color="#fff" size={30} />
-        </View>
+        {type ? (
+          <View className="icon">
+            <Ticon value={MESSAGE_ICON[type]} color="#fff" size={30} />
+          </View>
+        ) : null}
+
         <View className="text">{message}</View>
+
         {showClose ? (
           <View className="close" onClick={this.handleHideMessage}>
             <Ticon value="icon-close1" size={32} color="#fff" />

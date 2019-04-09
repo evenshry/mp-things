@@ -2,14 +2,13 @@ import Taro, { Config } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import BaseComponent from 'components/index';
 import ItemRow from 'components/ItemRow';
-import './style.less';
 
 interface Props {}
 interface InjectedProps extends Props {}
 
 export default class DemoItemRow extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: 'ItemRow Demos'
+    navigationBarTitleText: '列表项-示例'
   };
   get injected() {
     return this.props as InjectedProps;
@@ -30,9 +29,9 @@ export default class DemoItemRow extends BaseComponent<Props, Object> {
 
   render() {
     return (
-      <View className="container">
+      <View className="demoContainer">
         <View className="header">
-          <Text className="title">ItemRow</Text>
+          <Text className="title">ItemRow 列表项</Text>
         </View>
         <View className="listContainer">
           <View className="subTitle">基本用法</View>

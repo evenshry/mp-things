@@ -5,11 +5,15 @@
 }
 
 .uiMessage {
-  .flexRow;
-  justify-content: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 990;
   height: 64rpx;
   padding: 0rpx 20rpx;
+  .flexRow;
+  justify-content: center;
   background-color: #4189fd;
   transform: translate3d(0, -100%, 0);
   transform-origin: center;

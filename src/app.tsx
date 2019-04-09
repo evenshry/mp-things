@@ -1,8 +1,8 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { Provider } from '@tarojs/mobx'
+import Taro, { Component, Config } from '@tarojs/taro';
+import { Provider } from '@tarojs/mobx';
 import Index from 'pages/home/Index';
-import store from './store'
-import './app.less'
+import store from './store';
+import './app.less';
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -11,7 +11,6 @@ import './app.less'
 // }
 
 class App extends Component {
-
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -22,13 +21,13 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/home/Index/index',
-      'pages/demo/Checks/index',
-      'pages/demo/ItemRow/index',
-      'pages/demo/Message/index',
-      'pages/demo/Modal/index',
-      'pages/demo/Notice/index',
-      'pages/demo/Tpicker/index',
-      'pages/demo/Tabs/index'
+      'pages/demo/Checks',
+      'pages/demo/ItemRow',
+      'pages/demo/Message',
+      'pages/demo/Modal',
+      'pages/demo/Notice',
+      'pages/demo/Tpicker',
+      'pages/demo/Tabs'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -36,25 +35,25 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     }
-  }
+  };
 
-  componentDidMount () {}
+  componentDidMount() {}
 
-  componentDidShow () {}
+  componentDidShow() {}
 
-  componentDidHide () {}
+  componentDidHide() {}
 
-  componentDidCatchError () {}
+  componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Provider store={store}>
         <Index />
       </Provider>
-    )
+    );
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById('app'));
