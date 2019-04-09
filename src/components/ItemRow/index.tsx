@@ -91,7 +91,7 @@ export default class ItemRow extends Component<Props, Object> {
       detailContent = (
         <View className={detailClass} onClick={this.onClickDetail}>
           <View className="text">{detail || this.props.children}</View>
-          <Ticon value="right" />
+          <Ticon value="icon-arrow-right" />
         </View>
       );
     }

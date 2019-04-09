@@ -13,12 +13,12 @@ export default class Ticon extends Component<Props, Object> {
   static defaultProps = {
     name: 'right',
     size: 24,
-    color: '#ccc'
+    color: '#ababab'
   };
 
   render() {
     const { value, size, color } = this.props;
     const style = { fontSize: size + 'rpx', color: color };
-    return <Text className={`iconfont icon-${value}`} style={style} />;
+    return <Text className={`iconfont ${value}`} style={style} />;
   }
 }

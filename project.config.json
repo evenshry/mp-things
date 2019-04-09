@@ -33,7 +33,7 @@
 				{
 					"id": 0,
 					"name": "Tpicker",
-					"pathName": "pages/demo/Tpicker/index",
+					"pathName": "pages/demo/Modal/index",
 					"query": "",
 					"scene": null
 				}

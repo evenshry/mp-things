@@ -1,6 +1,10 @@
 .ui-modal {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 990;
+  overflow: hidden;
+
   .modal-mask {
     position: fixed;
     top: 0;
@@ -8,7 +12,7 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 990;
+    z-index: 991;
     transition: all 0.15s ease-in-out;
     opacity: 0;
     visibility: hidden;
@@ -30,17 +34,9 @@
     transform: translate3d(0, 100%, 0);
     transform-origin: center;
     transition: all 0.15s ease-in-out;
-    z-index: 990;
+    z-index: 992;
     visibility: hidden;
     // overflow: hidden;
-    &.center {
-      width: auto;
-      margin: auto;
-      width: 80%;
-      height: 50%;
-      top: 0;
-      transform: translate3d(0, -200%, 0);
-    }
     &.show {
       transform: translate3d(0, 0, 0);
       visibility: visible;
@@ -48,6 +44,16 @@
     &.radius {
       border-radius: 10rpx;
       overflow: hidden;
+    }
+    &.center {
+      width: 80%;
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      transform: translate3d(-50%, -250%, 0);
+      &.show {
+        transform: translate3d(-50%, -50%, 0);
+      }
     }
 
     .modal-header {

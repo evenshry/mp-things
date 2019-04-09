@@ -88,7 +88,7 @@ export default class Tpicker extends Component<Props, Object> {
             return (
               <View key={`item_${index}`} className={`item ${active ? 'active' : ''}`} onClick={this.handleSelect.bind(this, item)}>
                 <Text className="text">{item.label}</Text>
-                {active ? <Ticon value="check-circle" size={30} color="#ff921c" /> : null}
+                {active ? <Ticon value="icon-check1" size={30} color="#ff921c" /> : null}
               </View>
             );
           })}

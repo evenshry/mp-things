@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Icon } from '@tarojs/components';
-
+import { View, Text } from '@tarojs/components';
+import Ticon from 'components/Ticon';
 import './style.less';
 
 interface Props {
@@ -25,8 +25,6 @@ export default class Modal extends Component<Props, Object> {
     showFooter: false,
     center: false,
     radius: false,
-    width: '100%',
-    height: 'auto',
     title: '标题'
   };
 
@@ -49,9 +47,13 @@ export default class Modal extends Component<Props, Object> {
     const { visible, title, center, radius, width, height, showHeader, showClose, showFooter } = this.props;
     return (
       <View className="ui-modal" onTouchMove={this.handleTouchMove}>
-        <View className={`modal-mask ${visible && 'modal-mask-show'}`} onClick={this.handleClose} />
+        <View className={`modal-mask ${visible && 'modal-mask-show'}`} onTouchMove={this.handleTouchMove} onClick={this.handleClose} />
 
-        <View className={`modal ${center ? 'center' : ''} ${visible ? 'show' : ''} ${radius ? 'radius' : ''}`} style={{ width, height }}>
+        <View
+          className={`modal ${center ? 'center' : ''} ${visible ? 'show' : ''} ${radius ? 'radius' : ''}`}
+          style={{ width, height }}
+          onTouchMove={this.handleTouchMove}
+        >
           {showHeader && (
             <View className="modal-header">
               <Text className="title">{title}</Text>
@@ -60,7 +62,7 @@ export default class Modal extends Component<Props, Object> {
 
           {showClose && (
             <View className="modal-close" onClick={this.handleClose}>
-              <Icon type="cancel" color="#ccc" size="16px" />
+              <Ticon value="icon-close1" size={40} />
             </View>
           )}
 

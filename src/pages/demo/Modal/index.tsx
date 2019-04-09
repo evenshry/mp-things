@@ -60,7 +60,7 @@ export default class DemoModal extends BaseComponent<Props, Object> {
     return (
       <View className="container">
         <View className="header">
-          <Text className="title">Checks</Text>
+          <Text className="title">Modal</Text>
         </View>
 
         <View className="listContainer">
@@ -72,45 +72,43 @@ export default class DemoModal extends BaseComponent<Props, Object> {
         </View>
 
         <Modal visible={modal[0]} title="弹窗的标题" onClose={this.handleModal.bind(this, 0, false)}>
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
+          <View className="modalBody">
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+          </View>
         </Modal>
 
         <Modal visible={modal[1]} title="弹窗的标题" center width="80%" height="400rpx" onClose={this.handleModal.bind(this, 1, false)}>
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
+          <View className="modalBody">
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+          </View>
+        </Modal>
+
+        <Modal visible={modal[2]} title="弹窗的标题" center radius width="80%" onClose={this.handleModal.bind(this, 2, false)}>
+          <View className="modalBody">
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+          </View>
         </Modal>
 
         <Modal
-          visible={modal[2]}
-          title="弹窗的标题"
-          center
-          radius
-          width="80%"
-          height="400rpx"
-          onClose={this.handleModal.bind(this, 2, false)}
-        >
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
-        </Modal>
-
-        <Modal
-          visible={modal[3]}
-          title="弹窗的标题"
           center
           radius
           showFooter
-          width="80%"
-          height="500rpx"
+          title="弹窗的标题"
+          visible={modal[3]}
           onClose={this.handleModal.bind(this, 3, false)}
           onSure={this.handleSure}
         >
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
-          <View className="content">弹窗的内容。。。</View>
+          <View className="modalBody">
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+            <View className="content">弹窗的内容。。。</View>
+          </View>
         </Modal>
       </View>
     );

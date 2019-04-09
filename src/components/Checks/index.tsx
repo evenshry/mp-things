@@ -38,7 +38,7 @@ export default class Checks extends Component<Props, Object> {
           const selected = item.selected;
           return (
             <View key={`item_${index}`} className="labelContainer" onClick={this.onSelect.bind(this, item, index)}>
-              <Ticon value="success" color={selected ? activeColor : defaultColor} size={30} />
+              <Ticon value="icon-check" color={selected ? activeColor : defaultColor} size={30} />
               <Text className="text" style={{ color: selected ? activeColor : defaultColor }}>
                 {item.label}
               </Text>

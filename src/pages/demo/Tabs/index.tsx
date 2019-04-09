@@ -39,17 +39,16 @@ export default class DemoModal extends BaseComponent<Props, Object> {
 
         <View className="listContainer">
           <View className="subTitle">基本用法</View>
+          <Tabs data={['测试一', '测试二']} value={active} onChange={this.handleChange} />
+          <Swiper current={active} duration={200} onChange={this.handleSwiper}>
+            <SwiperItem>
+              <View className="content">弹窗的内容。。。</View>
+            </SwiperItem>
+            <SwiperItem>
+              <View className="content">弹窗的内容。。。</View>
+            </SwiperItem>
+          </Swiper>
         </View>
-
-        <Tabs data={['测试一', '测试二']} value={active} onChange={this.handleChange} />
-        <Swiper current={active} duration={200} onChange={this.handleSwiper}>
-          <SwiperItem>
-            <View className="content">弹窗的内容。。。</View>
-          </SwiperItem>
-          <SwiperItem>
-            <View className="content">弹窗的内容。。。</View>
-          </SwiperItem>
-        </Swiper>
       </View>
     );
   }
