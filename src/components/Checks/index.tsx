@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Icon } from '@tarojs/components';
+import { View, Text } from '@tarojs/components';
+import Ticon from 'components/Ticon';
 import './style.less';
 
 interface Props {
@@ -36,8 +37,8 @@ export default class Checks extends Component<Props, Object> {
         {data.map((item, index) => {
           const selected = item.selected;
           return (
-            <View key={index} className="labelContainer" onClick={this.onSelect.bind(this, item, index)}>
-              <Icon type="success" color={selected ? activeColor : defaultColor} size="14px" />
+            <View key={`item_${index}`} className="labelContainer" onClick={this.onSelect.bind(this, item, index)}>
+              <Ticon value="success" color={selected ? activeColor : defaultColor} size={30} />
               <Text className="text" style={{ color: selected ? activeColor : defaultColor }}>
                 {item.label}
               </Text>

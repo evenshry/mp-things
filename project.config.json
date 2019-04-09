@@ -32,9 +32,10 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "Checks",
-					"pathName": "pages/demo/Checks/index",
-					"query": ""
+					"name": "Tpicker",
+					"pathName": "pages/demo/Tpicker/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

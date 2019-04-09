@@ -25,6 +25,7 @@ class App extends Component {
       'pages/demo/Checks/index',
       'pages/demo/ItemRow/index',
       'pages/demo/Modal/index',
+      'pages/demo/Tpicker/index',
       'pages/demo/Tabs/index'
     ],
     window: {

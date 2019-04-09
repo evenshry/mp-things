@@ -127,7 +127,7 @@ export default class Tabs extends Component<Props, Object> {
         >
           {data.map((item, index) => (
             <View
-              key={index}
+              key={`item_${index}`}
               className={`item ${index === current ? 'active' : ''}`}
               onClick={this.handleChange.bind(this, index, true)}
               style={{

@@ -54,7 +54,7 @@ export default class Index extends BaseComponent<Props, Object> {
           <ItemRow title="Checks" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
           <ItemRow title="ItemRow" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
           <ItemRow title="Modal" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Modal')} />
-          <ItemRow title="ModalSel" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ModalSel')} />
+          <ItemRow title="Tpicker" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tpicker')} />
           <ItemRow title="Notice" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Notice')} />
           <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tabs')} />
         </View>
