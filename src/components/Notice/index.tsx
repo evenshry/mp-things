@@ -24,12 +24,12 @@ export default class Notice extends Component<Props, Object> {
     return show ? (
       <View className="noticeContainer">
         <View className="icon">
-          <Ticon value="icon-info-circle" color="#FF921C" size={30} />
+          <Ticon value="icon-info" color="#FF921C" size={30} />
         </View>
         <View className="text">{this.props.children}</View>
         {showClose ? (
           <View className="close" onClick={this.onClose}>
-            <Ticon value="icon-info" size={30} />
+            <Ticon value="icon-close1" size={30} />
           </View>
         ) : null}
       </View>

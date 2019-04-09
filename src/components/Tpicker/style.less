@@ -12,7 +12,7 @@
 
 .header {
   height: 100rpx;
-  border-bottom: 1rpx solid #f9f9f9;
+  border-bottom: 1rpx solid #eee;
   .flexRow;
   .cancel {
     width: 120rpx;
@@ -41,7 +41,7 @@
     color: #333;
     font-size: 28rpx;
     box-sizing: border-box;
-    border-bottom: 1rpx solid #f9f9f9;
+    position: relative;
     .flexRow;
     .text {
       flex: 1;
@@ -52,6 +52,20 @@
     }
     &.active {
       color: #ff921c;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      pointer-events: none;
+      box-sizing: border-box;
+      border-bottom: 1rpx solid #eee;
     }
   }
 }
