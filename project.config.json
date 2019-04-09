@@ -4,13 +4,15 @@
 	"description": "things",
 	"appid": "wx8df67a77498a252f",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
-		"minified": false,
-		"newFeature": true
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
+	"libVersion": "2.6.5",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -15,7 +15,7 @@ interface InjectedProps extends Props {
 @observer
 export default class Index extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: 'UI示例首页'
   };
   get injected() {
     return this.props as InjectedProps;
@@ -43,21 +43,39 @@ export default class Index extends BaseComponent<Props, Object> {
   };
 
   render() {
-    const { User } = this.injected;
-    const { title } = User;
+    // const { User } = this.injected;
+    // const { title } = User;
     return (
-      <View className="container">
+      <View className="demoContainer">
         <View className="header">
-          <Text className="title">{title}</Text>
+          <Text className="title">UI示例</Text>
         </View>
         <View className="listContainer">
-          <ItemRow title="ItemRow" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
-          <ItemRow title="Checks" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
-          <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tabs')} />
-          <ItemRow title="Modal" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Modal')} />
-          <ItemRow title="Tpicker" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tpicker')} />
-          <ItemRow title="Notice" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Notice')} />
-          <ItemRow title="Message" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Message')} />
+          <ItemRow
+            title="ItemRow-列表项"
+            titleWidth={260}
+            type="select"
+            detail="查看"
+            onClickDetail={this.handleDemo.bind(this, 'ItemRow')}
+          />
+          <ItemRow title="Checks-选项" titleWidth={260} type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
+          <ItemRow title="Tabs-标签页" titleWidth={260} type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tabs')} />
+          <ItemRow title="Modal-弹出框" titleWidth={260} type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Modal')} />
+          <ItemRow
+            title="Tpicker-选项弹出框"
+            titleWidth={260}
+            type="select"
+            detail="查看"
+            onClickDetail={this.handleDemo.bind(this, 'Tpicker')}
+          />
+          <ItemRow title="Notice-通知" titleWidth={260} type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Notice')} />
+          <ItemRow
+            title="Message-消息"
+            titleWidth={260}
+            type="select"
+            detail="查看"
+            onClickDetail={this.handleDemo.bind(this, 'Message')}
+          />
         </View>
       </View>
     );
