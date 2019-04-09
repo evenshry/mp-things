@@ -32,8 +32,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "Tpicker",
-					"pathName": "pages/demo/Modal/index",
+					"name": "Message",
+					"pathName": "pages/demo/Message/index",
 					"query": "",
 					"scene": null
 				}

@@ -1,0 +1,65 @@
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.uiMessage {
+  .flexRow;
+  justify-content: center;
+  position: relative;
+  height: 64rpx;
+  padding: 0rpx 20rpx;
+  background-color: #4189fd;
+  transform: translate3d(0, -100%, 0);
+  transform-origin: center;
+  transition: all 0.15s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  &.info {
+    background-color: #78a4fa;
+    .text {
+      color: #fff;
+    }
+  }
+
+  &.success {
+    background-color: #13ce66;
+    .text {
+      color: #fff;
+    }
+  }
+
+  &.warning {
+    background-color: #ffc82c;
+    .text {
+      color: #fff;
+    }
+  }
+
+  &.error {
+    background-color: #ff4949;
+    .text {
+      color: #fff;
+    }
+  }
+
+  .text {
+    margin-left: 10rpx;
+    font-size: 26rpx;
+    color: #fff;
+  }
+
+  .close {
+    position: absolute;
+    right: 20rpx;
+    top: 4rpx;
+  }
+}

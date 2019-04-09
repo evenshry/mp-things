@@ -24,6 +24,7 @@ class App extends Component {
       'pages/home/Index/index',
       'pages/demo/Checks/index',
       'pages/demo/ItemRow/index',
+      'pages/demo/Message/index',
       'pages/demo/Modal/index',
       'pages/demo/Notice/index',
       'pages/demo/Tpicker/index',

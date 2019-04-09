@@ -51,12 +51,13 @@ export default class Index extends BaseComponent<Props, Object> {
           <Text className="title">{title}</Text>
         </View>
         <View className="listContainer">
-          <ItemRow title="Checks" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
           <ItemRow title="ItemRow" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'ItemRow')} />
+          <ItemRow title="Checks" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Checks')} />
+          <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tabs')} />
           <ItemRow title="Modal" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Modal')} />
           <ItemRow title="Tpicker" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tpicker')} />
           <ItemRow title="Notice" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Notice')} />
-          <ItemRow title="Tabs" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Tabs')} />
+          <ItemRow title="Message" type="select" detail="查看" onClickDetail={this.handleDemo.bind(this, 'Message')} />
         </View>
       </View>
     );
