@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
+import { ITouchEvent } from '@tarojs/components/types/common';
 import { observer, inject } from '@tarojs/mobx';
 import BaseComponent from 'components/index';
 import { DiyStore } from 'pages/diy/store';
@@ -19,19 +20,28 @@ export default class ToolBar extends BaseComponent<Props, Object> {
   }
 
   /**
-   * 显示工具条
+   * 显示属性窗口
    */
-  handleToolHide = () => {
+  handleShowProp = (event: ITouchEvent) => {
+    event.stopPropagation();
     const { DiyStore } = this.injected;
-    DiyStore.setShowTool(false);
+    DiyStore.setCurrentProp({ showProp: true });
+  };
+
+  /**
+   * 收起工具条
+   */
+  handleToolHide = (event: ITouchEvent) => {
+    event.stopPropagation();
+    const { DiyStore } = this.injected;
+    DiyStore.setCurrentProp({ showTool: false });
   };
 
   render() {
-    const { DiyStore } = this.injected;
-    const { showTool } = DiyStore;
+    const { currentProp } = this.injected.DiyStore;
     return (
-      <View className={`toolContainer ${showTool ? 'show' : ''}`}>
-        <View className="item">
+      <View className={`toolContainer ${currentProp.showTool ? 'show' : ''}`}>
+        <View className="item" onClick={this.handleShowProp}>
           <Ticon value="icon-edit-square" color="#fff" size={44} />
           <Text className="text">编辑属性</Text>
         </View>

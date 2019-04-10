@@ -1,10 +1,12 @@
 import Taro, { Config } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { View, Block } from '@tarojs/components';
+import { ITouchEvent } from '@tarojs/components/types/common';
 import { observer, inject } from '@tarojs/mobx';
 import BaseComponent from 'components/index';
 import { DiyStore } from 'pages/diy/store';
 import DiyLayout from 'pages/diy/components/Layout';
 import ToolBar from 'pages/diy/Index/ToolBar';
+import PropBar from 'pages/diy/Index/PropBar';
 import './style.less';
 
 interface Props {}
@@ -22,8 +24,6 @@ export default class Index extends BaseComponent<Props, Object> {
     return this.props as InjectedProps;
   }
 
-  componentWillMount() {}
-
   componentDidMount() {
     const { DiyStore } = this.injected;
     DiyStore.setDiyData({
@@ -32,20 +32,29 @@ export default class Index extends BaseComponent<Props, Object> {
     });
   }
 
-  componentAfterShow() {}
+  /**
+   * 收起工具条
+   */
+  handleToolHide = (event: ITouchEvent) => {
+    event.stopPropagation();
+    const { DiyStore } = this.injected;
+    DiyStore.setCurrentProp({ showTool: false });
+  };
 
   render() {
-    const { DiyStore } = this.injected;
-    const { diyData } = DiyStore;
+    const { diyData } = this.injected.DiyStore;
     const layouts = diyData.layouts || [];
     return (
-      <View className="container">
-        {layouts.map((item, index) => (
-          <DiyLayout data={item} key={`item_${index}`} />
-        ))}
+      <Block>
+        <View className="container" onClick={this.handleToolHide}>
+          {layouts.map((item, index) => (
+            <DiyLayout data={item} key={`item_${index}`} />
+          ))}
+        </View>
 
         <ToolBar />
-      </View>
+        <PropBar />
+      </Block>
     );
   }
 }

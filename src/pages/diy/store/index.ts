@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, toJS } from 'mobx';
 
 export class DiyStore {
   /**
@@ -9,25 +9,54 @@ export class DiyStore {
 
   @action
   setDiyData = (options: Diy.LayoutProps): void => {
-    const _props = this.updateDeepAndIndex(options);
-    this.diyData = { ..._props };
+    this.diyData = this.updateDeepAndIndex(options);
   };
 
   /**
-   * 显示工具栏
+   * 当前属性组
    */
   @observable
-  showTool: boolean = false;
+  currentProp: Diy.CurrentProp = {};
 
   @action
-  setShowTool = (value: boolean): void => {
-    this.showTool = value;
+  setCurrentProp = (options: Diy.CurrentProp): void => {
+    this.currentProp = { ...this.currentProp, ...options };
+  };
+
+  /**
+   * 更新属性 （key, value）
+   */
+  @action
+  updatePropValue = (key: string, value: any): void => {
+    const firstDeep = 2;
+    const options = toJS(this.diyData);
+    const deep = this.currentProp.propDeep ? this.currentProp.propDeep.split('_') : [];
+    if (deep.length >= firstDeep) {
+      const lastDeep = Number(deep[deep.length - 1]);
+      // 根据深度和标识更新属性值
+      const updatePropByDeep = (options: Diy.LayoutProps, deepIndex: number): Diy.LayoutProps => {
+        if (options.layouts) {
+          options.layouts = options.layouts.map((item, index) => {
+            if (deepIndex === deep.length) {
+              if (index === lastDeep) {
+                item.props ? (item.props[key] = value) : (item.props = { [key]: value });
+              }
+              return item;
+            } else {
+              return updatePropByDeep(item, deepIndex + 1);
+            }
+          });
+        }
+        return options;
+      };
+      this.diyData = updatePropByDeep(options, firstDeep);
+    }
   };
 
   /**
    * 更新深度索引
    */
-  updateDeepAndIndex = (options: Diy.LayoutProps): Diy.LayoutProps => {
+  private updateDeepAndIndex = (options: Diy.LayoutProps): Diy.LayoutProps => {
     if (options.layouts) {
       options.layouts = options.layouts.map((item, index) => {
         item.deep = `${options.deep || '0'}_${index}`;

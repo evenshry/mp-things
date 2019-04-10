@@ -1,13 +1,11 @@
-import Taro from '@tarojs/taro';
-import DiyComponent from 'pages/diy/components';
+import Taro, { Component } from '@tarojs/taro';
 import DiyView from '../View';
-import './style.less';
 
 interface Props {
   data: Diy.LayoutProps;
 }
 
-export default class DiyLayout extends DiyComponent<Props, Object> {
+export default class DiyLayout extends Component<Props, Object> {
   static defaultProps = {};
 
   render() {

@@ -13,8 +13,8 @@ interface Props {
   height?: number;
   maxlength?: number;
   placeholder?: string;
-  onClickDetail?: any;
-  onChangeValue?: any;
+  onClickDetail?: Function;
+  onChangeValue?: Function;
 }
 
 interface StyleObj {
@@ -34,12 +34,12 @@ export default class ItemRow extends Component<Props, Object> {
     onChangeValue: null
   };
 
-  onClickDetail = event => {
+  onClickDetail = (event: any) => {
     const { onClickDetail } = this.props;
     onClickDetail && onClickDetail(event);
   };
 
-  onChangeValue = event => {
+  onChangeValue = (event: any) => {
     const { onChangeValue } = this.props;
     onChangeValue && onChangeValue(event);
   };
