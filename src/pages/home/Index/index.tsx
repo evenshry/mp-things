@@ -15,7 +15,7 @@ interface InjectedProps extends Props {
 @observer
 export default class Index extends BaseComponent<Props, Object> {
   config: Config = {
-    navigationBarTitleText: 'UI示例首页'
+    navigationBarTitleText: 'MiniUI收集'
   };
   get injected() {
     return this.props as InjectedProps;
@@ -48,7 +48,7 @@ export default class Index extends BaseComponent<Props, Object> {
     return (
       <View className="demoContainer">
         <View className="header">
-          <Text className="title">UI示例</Text>
+          <Text className="title">MiniUI收集</Text>
         </View>
         <View className="listContainer">
           <ItemRow

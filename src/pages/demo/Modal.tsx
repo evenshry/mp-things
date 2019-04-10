@@ -64,10 +64,10 @@ export default class DemoModal extends BaseComponent<Props, Object> {
 
         <View className="listContainer">
           <View className="subTitle">基本用法</View>
-          <ItemRow title="标题" type="select" detail="底部弹出" onClickDetail={this.handleDetail.bind(this, 0)} />
-          <ItemRow title="标题" type="select" detail="顶部弹出、居中" onClickDetail={this.handleDetail.bind(this, 1)} />
-          <ItemRow title="标题" type="select" detail="顶部弹出、居中、圆角" onClickDetail={this.handleDetail.bind(this, 2)} />
-          <ItemRow title="标题" type="select" detail="顶部弹出、居中、圆角、显示按钮" onClickDetail={this.handleDetail.bind(this, 3)} />
+          <ItemRow title="默认用法" type="select" detail="查看效果" onClickDetail={this.handleDetail.bind(this, 0)} />
+          <ItemRow title="顶部弹出" type="select" detail="查看效果" onClickDetail={this.handleDetail.bind(this, 1)} />
+          <ItemRow title="居中圆角" type="select" detail="查看效果" onClickDetail={this.handleDetail.bind(this, 2)} />
+          <ItemRow title="显示按钮" type="select" detail="查看效果" onClickDetail={this.handleDetail.bind(this, 3)} />
         </View>
 
         <Modal visible={modal[0]} title="弹窗的标题" onClose={this.handleModal.bind(this, 0, false)}>

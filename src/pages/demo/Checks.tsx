@@ -50,21 +50,24 @@ export default class DemoItemRow extends BaseComponent<Props, Object> {
         </View>
         <View className="listContainer">
           <View className="subTitle">基本用法</View>
-          <ItemRow title="标题" type="default">
+          <ItemRow title="列表项" type="default">
             <Checks data={data} align="left" onSelect={this.handleSelect} />
           </ItemRow>
-          <ItemRow title="标题" type="default">
-            <Checks data={data} align="center" onSelect={this.handleSelect} />
-          </ItemRow>
-          <ItemRow title="标题" type="default">
-            <Checks data={data} align="right" onSelect={this.handleSelect} />
-          </ItemRow>
-          <ItemRow title="标题" type="default">
-            <Checks data={data} align="right" defaultColor="#bbb" onSelect={this.handleSelect} />
-          </ItemRow>
-          <ItemRow title="标题" type="default">
-            <Checks data={data} align="right" defaultColor="#aaa" activeColor="#0084FF" onSelect={this.handleSelect} />
-          </ItemRow>
+        </View>
+
+        <View className="listContainer">
+          <View className="subTitle">居中</View>
+          <Checks data={data} align="center" onSelect={this.handleSelect} />
+        </View>
+
+        <View className="listContainer">
+          <View className="subTitle">居右</View>
+          <Checks data={data} align="right" onSelect={this.handleSelect} />
+        </View>
+
+        <View className="listContainer">
+          <View className="subTitle">改变颜色</View>
+          <Checks data={data} align="left" defaultColor="#aaa" activeColor="#0084FF" onSelect={this.handleSelect} />
         </View>
       </View>
     );

@@ -6,6 +6,10 @@ import Tpicker, { DataProps } from 'components/Tpicker';
 
 interface Props {}
 interface InjectedProps extends Props {}
+interface State {
+  modal: Array<boolean>;
+  selection: Array<DataProps>;
+}
 
 export default class DemoPicker extends BaseComponent<Props, Object> {
   config: Config = {
@@ -15,7 +19,7 @@ export default class DemoPicker extends BaseComponent<Props, Object> {
     return this.props as InjectedProps;
   }
 
-  state = {
+  state: State = {
     modal: [false, false, false, false, false, false],
     selection: []
   };
@@ -48,11 +52,12 @@ export default class DemoPicker extends BaseComponent<Props, Object> {
   handleDetail = (index: number) => {
     this.handleModal(index, true);
   };
+
   /**
    * 处理点击
    */
-  handleSure = () => {
-    Taro.showToast({ title: '点击了确定' });
+  handleSure = (selection: Array<DataProps>) => {
+    this.setState({ selection });
   };
 
   render() {
@@ -76,10 +81,15 @@ export default class DemoPicker extends BaseComponent<Props, Object> {
 
         <View className="listContainer">
           <View className="subTitle">基本用法</View>
-          <ItemRow title="选项弹出框" type="select" detail="查看" onClickDetail={this.handleDetail.bind(this, 0)} />
+          <ItemRow
+            title="选项弹出框"
+            type="select"
+            detail={selection.length > 0 ? selection[0].label : '请选择'}
+            onClickDetail={this.handleDetail.bind(this, 0)}
+          />
         </View>
 
-        <Tpicker show={modal[0]} data={data} selected={selection} onModal={this.handleModal.bind(this, 0)} />
+        <Tpicker show={modal[0]} data={data} selected={selection} onModal={this.handleModal.bind(this, 0)} onSure={this.handleSure} />
       </View>
     );
   }

@@ -17,9 +17,10 @@
     "dev:tt": "npm run build:tt -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
     "dev:rn": "npm run build:rn -- --watch",
-    "start": "npm run build:weapp -- --watch"
+    "start": "npm run build:weapp -- --watch",
+    "build": "taro build --type weapp"
   },
-  "author": "",
+  "author": "evenshry@163.com",
   "license": "MIT",
   "dependencies": {
     "@tarojs/components": "1.2.23",
