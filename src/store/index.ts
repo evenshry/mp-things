@@ -1,5 +1,7 @@
 import UserStore from 'store/UserStore';
+import DiyStore from 'pages/diy/store';
 
 export default {
-  User: UserStore
+  UserStore,
+  DiyStore,
 };

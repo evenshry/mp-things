@@ -1,16 +1,18 @@
 import Taro, { Config } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import { observer, inject } from '@tarojs/mobx';
-import { UserStore } from 'store/UserStore';
 import BaseComponent from 'components/index';
+import { DiyStore } from 'pages/diy/store';
+import DiyLayout from 'pages/diy/components/Layout';
+import ToolBar from 'pages/diy/Index/ToolBar';
 import './style.less';
 
 interface Props {}
 interface InjectedProps extends Props {
-  User: UserStore;
+  DiyStore: DiyStore;
 }
 
-@inject('User')
+@inject('DiyStore')
 @observer
 export default class Index extends BaseComponent<Props, Object> {
   config: Config = {
@@ -20,30 +22,30 @@ export default class Index extends BaseComponent<Props, Object> {
     return this.props as InjectedProps;
   }
 
-  componentWillMount() {
-    this.initTitle();
-  }
+  componentWillMount() {}
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { DiyStore } = this.injected;
+    DiyStore.setDiyData({
+      title: '默认布局',
+      layouts: [{ type: 'View', layouts: [{ type: 'View' }] }, { type: 'View', layouts: [{ type: 'View' }] }]
+    });
+  }
 
   componentAfterShow() {}
 
-  initTitle = () => {
-    const { User } = this.injected;
-    const { title, setTitle } = User;
-    setTitle(`${title} WORLD`);
-  };
-
-  /**
-   * 调转详情
-   */
-  handleDemo = (type: string): void => {
-    Taro.navigateTo({ url: `/pages/demo/${type}` });
-  };
-
   render() {
-    // const { User } = this.injected;
-    // const { title } = User;
-    return <View className="demoContainer" />;
+    const { DiyStore } = this.injected;
+    const { diyData } = DiyStore;
+    const layouts = diyData.layouts || [];
+    return (
+      <View className="container">
+        {layouts.map((item, index) => (
+          <DiyLayout data={item} key={`item_${index}`} />
+        ))}
+
+        <ToolBar />
+      </View>
+    );
   }
 }

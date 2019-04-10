@@ -1,0 +1,41 @@
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toolContainer {
+  position: fixed;
+  .flexRow;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 30rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translate3d(150%, 0, 0);
+  transform-origin: center;
+  transition: all 0.15s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  .item {
+    flex: 1;
+    .flexColumn;
+    .text {
+      font-size: 20rpx;
+      color: #fff;
+    }
+  }
+}

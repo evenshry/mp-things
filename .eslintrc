@@ -3,7 +3,8 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "jsx-quotes": ["error", "prefer-double"],
-    "no-unused-vars": [0]
+    "no-unused-vars": [0],
+    "no-shadow": [0]
   },
   "parser": "typescript-eslint-parser"
 }

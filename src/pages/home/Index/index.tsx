@@ -8,10 +8,10 @@ import './style.less';
 
 interface Props {}
 interface InjectedProps extends Props {
-  User: UserStore;
+  UserStore: UserStore;
 }
 
-@inject('User')
+@inject('UserStore')
 @observer
 export default class Index extends BaseComponent<Props, Object> {
   config: Config = {
@@ -21,19 +21,11 @@ export default class Index extends BaseComponent<Props, Object> {
     return this.props as InjectedProps;
   }
 
-  componentWillMount() {
-    this.initTitle();
-  }
+  componentWillMount() {}
 
   componentDidMount() {}
 
   componentAfterShow() {}
-
-  initTitle = () => {
-    const { User } = this.injected;
-    const { title, setTitle } = User;
-    setTitle(`${title} WORLD`);
-  };
 
   /**
    * 跳转详情
@@ -50,8 +42,6 @@ export default class Index extends BaseComponent<Props, Object> {
   };
 
   render() {
-    // const { User } = this.injected;
-    // const { title } = User;
     return (
       <View className="demoContainer">
         <View className="header">
