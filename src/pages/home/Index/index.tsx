@@ -36,10 +36,17 @@ export default class Index extends BaseComponent<Props, Object> {
   };
 
   /**
-   * 调转详情
+   * 跳转详情
    */
   handleDemo = (type: string): void => {
     Taro.navigateTo({ url: `/pages/demo/${type}` });
+  };
+
+  /**
+   * 跳转DIY
+   */
+  handleDiy = (): void => {
+    Taro.navigateTo({ url: '/pages/diy/Index/index' });
   };
 
   render() {
@@ -76,6 +83,13 @@ export default class Index extends BaseComponent<Props, Object> {
             detail="查看"
             onClickDetail={this.handleDemo.bind(this, 'Message')}
           />
+        </View>
+
+        <View className="header">
+          <Text className="title">布局DIY</Text>
+        </View>
+        <View className="listContainer">
+          <ItemRow title="DIY入口" titleWidth={260} type="select" detail="查看" onClickDetail={this.handleDiy} />
         </View>
       </View>
     );

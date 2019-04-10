@@ -34,8 +34,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "Message",
-					"pathName": "pages/demo/Message/index",
+					"name": "布局DIY",
+					"pathName": "pages/diy/Index/index",
 					"query": "",
 					"scene": null
 				}

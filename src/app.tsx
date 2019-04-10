@@ -27,7 +27,8 @@ class App extends Component {
       'pages/demo/Modal',
       'pages/demo/Notice',
       'pages/demo/Tpicker',
-      'pages/demo/Tabs'
+      'pages/demo/Tabs',
+      'pages/diy/Index/index'
     ],
     window: {
       backgroundTextStyle: 'light',
