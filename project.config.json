@@ -1,5 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"projectname": "thing",
 	"description": "things",
 	"appid": "wx8df67a77498a252f",
@@ -13,6 +14,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
